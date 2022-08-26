@@ -1,7 +1,7 @@
 apply plugin: 'java-library'
 
 
-description = "sample template for asciidoctor project"
+description = "go sample for asciidoctor project"
 
 group = "com.jcohy.sample"
 version = "1.0.0"
