@@ -48,5 +48,9 @@ public class JcohyAsciidoctorPlugins implements Plugin<Project> {
 
     private void addAsciidoctorTaskAttributes(Project project,Map<String, Object> attributes) {
         attributes.put("rootProject", project.getRootProject().getProjectDir());
+        attributes.put("java-code", project.getRootProject().getProjectDir() + "/src/main/java/com/jcohy/sample");
+        attributes.put("kotlin-code", project.getRootProject().getProjectDir() + "/src/main/kotlin/com/jcohy/sample");
+        attributes.put("go-code", project.getRootProject().getProjectDir() + "/src/main/go/com/jcohy/sample");
+        attributes.put("oss-images", "https://study.jcohy.com/images/go");
     }
 }

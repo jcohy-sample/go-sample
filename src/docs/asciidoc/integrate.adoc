@@ -1,0 +1,6 @@
+[[go-integrate]]
+= 集成
+
+include::integrate/redis.adoc[leveloffset=+1]
+
+include::integrate/sql.adoc[leveloffset=+1]

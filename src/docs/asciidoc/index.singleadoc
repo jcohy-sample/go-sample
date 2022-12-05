@@ -1,7 +1,6 @@
 [[jcohy-study-note]]
-= Jcohy 学习笔记
+= Golang 指南
 Jcohy
-include::attributes.adoc[]
 
 ****
 作者网页:
@@ -12,3 +11,32 @@ https://docs.jcohy.com[*https://docs.jcohy.com*]
 
 我的学习笔记,记录学习过程中的笔记以及遇到的问题,以及我的一些经验总结.如果出现链接失效,或者想知道更多的内容等情况可以提交 https://github.com/jcohy/jcohy-issues/issues[Issues] 提醒我修改相关内容.
 ****
+
+include::overview.adoc[leveloffset=+1]
+
+include::getting-started.adoc[leveloffset=+1]
+
+include::module.adoc[leveloffset=+1]
+
+include::function.adoc[leveloffset=+1]
+
+include::oop.adoc[leveloffset=+1]
+
+include::file.adoc[leveloffset=+1]
+
+include::concurrency.adoc[leveloffset=+1]
+
+include::reflect.adoc[leveloffset=+1]
+
+include::tcp.adoc[leveloffset=+1]
+
+include::integrate.adoc[leveloffset=+1]
+
+include::go-web.adoc[leveloffset=+1]
+
+include::go-algorithm.adoc[leveloffset=+1]
+
+include::notice.adoc[leveloffset=+1]
+
+include::question.adoc[leveloffset=+1]
+

@@ -1,6 +1,5 @@
 [[java]]
-= Java
-include::attributes.adoc[]
+= Golang 指南
 
 ****
 作者网页:
@@ -13,3 +12,30 @@ https://www.jcohy.com[*https://www.jcohy.com/projects*]
 ****
 
 [horizontal]
+<<overview#go-overview,概述>> :: 概述.
+
+<<getting-started#go-getting-started,入门>> :: 入门
+
+<<module#go-module,Go 模块>>
+
+<<function#go-function,函数>>
+
+<<oop#go-oop,面向对象编程>>
+
+<<file#go-file,文件操作>>
+
+<<concurrency#go-concurrency,并发>>
+
+<<reflect#go-reflect,反射>>
+
+<<tcp#go-tcp,通讯>>
+
+<<integrate#go-integrate,集成>>
+
+<<go-web#go-webs,Go Web>>
+
+<<go-algorithm#go-algorithm,Go 算法>>
+
+<<notice#go-notice,注意事项>>
+
+<<question#go-question,常见问题>>
