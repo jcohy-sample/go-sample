@@ -1,7 +1,7 @@
 [[go-integrate-redis]]
 = redis 集成
 
-<<nosql.adoc#nosql-redis>> 中详情的介绍了 redis, 这里不再过多介绍.
+{study-url}/redis/index.html[Redis 指南] 中详情的介绍了 redis, 这里不再过多介绍.
 
 Golang 操作 Redis, 使用第三方开源的 redis 库, 目前主流的 redis 库为
 

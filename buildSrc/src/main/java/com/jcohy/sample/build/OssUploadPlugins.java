@@ -26,7 +26,7 @@ public class OssUploadPlugins implements Plugin<Project> {
 		extension.setBucket("jcohy-study");
 		String buildDir = project.getRootProject().getBuildDir().getName();
 		extension.getUpload().setSource(buildDir+"/generated");
-		extension.getUpload().setPrefix("");
+		extension.getUpload().setPrefix("go");
 
 		extension.getUpload().setIgnoreSourceDir(true);
 	}

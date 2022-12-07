@@ -95,7 +95,7 @@ func getSum(a,b int) int{
 [[go-function-use-return-value-name]]
 === 命名返回值
 
-Go 函数的返回值或者结果参数可以指定一个名字,并且像原始的变量那样使用,就像输入参数那样,如果对其命名,在函数开始时,它们会用其类型的<<go-getting-started-data-type-default>>初始化.
+Go 函数的返回值或者结果参数可以指定一个名字,并且像原始的变量那样使用,就像输入参数那样,如果对其命名,在函数开始时,它们会用其类型的<<getting-started.adoc#go-getting-started-data-type-default>>初始化.
 
 [source,go]
 ----
@@ -116,7 +116,7 @@ func getSumAndSub(a,b int) (sum int,sub int){
 func myfunc(arg ...int){}
 ----
 
-`arg ...int` 告诉 go 这个函数接受不定数量的参数.注意这些参数的类型都是 `int`.在函数体中,变量 arg 是一个 int 类型的 <<go-getting-started-data-type-complex-slice>>
+`arg ...int` 告诉 go 这个函数接受不定数量的参数.注意这些参数的类型都是 `int`.在函数体中,变量 arg 是一个 int 类型的 <<getting-started.adoc#go-getting-started-data-type-complex-slice>>
 
 [source,go]
 ----
@@ -989,13 +989,13 @@ func main() {
 
 . 函数的形参列表可以是多个,返回值列表也可以是多个
 . 形参列表和返回值列表的数据类型可以是值类型和引用类型
-. 函数的命名遵循<<go-getting-started-identifier>> 命名规范
+. 函数的命名遵循<<getting-started.adoc#go-getting-started-identifier>> 命名规范
 . 首字母大写的函数可以被本包和其他包文件使用.首字母小写,只能被本包文件使用
 . 函数中的变量时局部的,函数外不生效
 . 基本数据类型和数组默认都是值传递的,即进行值拷贝.在函数内修改,不会影响到原来的值
-. 如果希望函数内的变量能修改函数外的变量(指的是默认以值传递的方式的数据类型),可以传入变量的地址 `&` ,函数内以 <<go-getting-started-data-type-complex-pointer>> 的凡是操作变量
+. 如果希望函数内的变量能修改函数外的变量(指的是默认以值传递的方式的数据类型),可以传入变量的地址 `&` ,函数内以 <<getting-started.adoc#go-getting-started-data-type-complex-pointer>> 的凡是操作变量
 . Go 函数不支持函数重载
-. 函数是一种数据类型,参见<<go-getting-started-data-type-complex-function,函数数据类型>>
+. 函数是一种数据类型,参见<<getting-started.adoc#go-getting-started-data-type-complex-function,函数数据类型>>
 . 使用 `_` 标识符,忽略返回值
 
 [[go-function-sample]]

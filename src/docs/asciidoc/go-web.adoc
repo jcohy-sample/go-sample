@@ -1,0 +1,4 @@
+[[go-webs]]
+= Go Web
+
+include::go-web/go-web.adoc[leveloffset=+1]

@@ -1,7 +1,6 @@
 [[jcohy-study-note]]
-= Jcohy 学习笔记
+= Golang 指南
 Jcohy
-include::attributes.adoc[]
 
 ****
 作者网页:
@@ -32,3 +31,12 @@ include::reflect.adoc[leveloffset=+1]
 include::tcp.adoc[leveloffset=+1]
 
 include::integrate.adoc[leveloffset=+1]
+
+include::go-web.adoc[leveloffset=+1]
+
+include::go-algorithm.adoc[leveloffset=+1]
+
+include::notice.adoc[leveloffset=+1]
+
+include::question.adoc[leveloffset=+1]
+

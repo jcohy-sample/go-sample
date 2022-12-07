@@ -8,15 +8,15 @@
 
 https://go-zh.org/doc/install[https://go-zh.org/doc/install]
 
-GOROOT:GOROOT 就是 go 的安装路径
+GOROOT:GOROOT就是 go 的安装路径
 
 GOPATH:是作为编译后二进制的存放目的地和 `import` 包时的搜索路径 (其实也是你的工作目录, 你可以在 `src` 下创建你自己的 go 源文件, 然后开始工作).
 
-GOPATH 之下主要包含三个目录:
+GOPATH之下主要包含三个目录:
 
 * bin:主要存放可执行文件;
-* pkg:存放编译好的库文件,主要是 *.a 文件
-* src:主要存放 go 的源文件
+* pkg:存放编译好的库文件,主要是*.a文件
+* src:主要存放go的源文件
 
 [IMPORTANT]
 ====
@@ -87,21 +87,21 @@ go run helloworld.go
 == 程序开发注意事项
 
 . Go 源文件以 "go" 为扩展名
-. Go 应用程序的执行入口是  `main()` 函数,这个是和其他编程语言(例如 java,c)一样.
+. Go 应用程序的执行入口是  main() 函数,这个是和其他编程语言(例如 java,c)一样.
 . Go 语言严格区分大小写
 . Go 方法由一条条语句构成,每个语句后面不需要分号(Go 语言会自动在每行后加分号)
 . Go 编译器是一行行进行编译的,因此我们一行就写一条语句,不能把多条语句写在同一行,否则报错
-. Go 语言定义的变量或者 `import` 的包如果没有使用到,代码不能编译通过
+. Go 语言定义的变量或者 import 的包如果没有使用到,代码不能编译通过
 . 大括号都是成对出现的,不可省略
 
 [[go-getting-started-specification]]
 == Golang 代码规范
 
 * Golang 官方推荐使用行注释来注释整个方法和语句
-* 正确的缩进和空白,使用 `gofmt` 命令进行格式化
+* 正确的缩进和空白,使用 gofmt 命令进行格式化
 * 运算符两边习惯各加一个空格
 * 大括号必须跟在语句后面,不能单起一行.
-* 一行最多不超过 80 个字符
+* 一行最多不超过80个字符
 
 [[go-getting-started-guide]]
 == Golang 官方编程指南
@@ -211,8 +211,7 @@ print	  println       real	    recover	    string	    true	    uint	        uint
 
 * 基本语言 `var 变量名 数据类型`
 
-变量在未进行初始化前,使用 <<go-getting-started-data-type-default>>
-
+变量在未进行初始化前,使用 <<getting-started.adoc#go-getting-started-data-type-default>>
 [source, go]
 ----
 package main
@@ -299,7 +298,7 @@ func main(){
 }
 ----
 
-一个特殊的变量名是 `_`(下划线).下划线意思是忽略这个变量,例如,`f,err := os.Open(xxxxxxx)` 如果此时不需要知道返回的错误值,就可以用 `f, _ := os.Open(xxxxxx)` ,如此则忽略了 `error` 变量.
+一个特殊的变量名是 `_`(下划线).下划线意思是忽略这个变量,例如,`f,err := os.Open(xxxxxxx)` 如果此时不需要知道返回的错误值,就可以用 `f, _ := os.Open(xxxxxx)` ,如此则忽略了error变量.
 
 [[go-getting-started-vars-assignment]]
 === 给变量赋值
@@ -357,7 +356,7 @@ Go 中的数据类型主要分为两大块,一块是基本数据类型,一块是
 
 `uintptr` 是一种无符号的整数类型,没有指定具体的 `bit` 大小但是足以容纳指针. `uintptr` 类型只有在底层编程是才需要,特别是 Go 语言和 C 语言函数库或操作系统接口相交互的地方.
 
-不管它们的具体大小,`int`、`uint` 和 `uintptr` 是不同类型的兄弟类型.其中 `int` 和 `int32` 也是不同的类型, 即使 `int` 的大小也是 `32bit`,在需要将 `int` 当作 `int32` 类型的地方需要一个显式的 <<go-getting-started-data-type-convert>> 操作,反之亦然.
+不管它们的具体大小,`int`、`uint` 和 `uintptr` 是不同类型的兄弟类型.其中 `int` 和 `int32` 也是 不同的类型, 即使 `int` 的大小也是 `32bit`,在需要将 `int` 当作 `int32` 类型的地方需要一个显式的 <<go-getting-started-data-type-convert>> 操作,反之亦然.
 
 有符号整数采用 `2` 的补码形式表示,也就是最高 bit 位用作表示符号位,一个 `n` bit 的有 符号数的值域是从 `-2^{n-1}` 到 `2^{n-1}−1`.例如,`int8` 类型整数的值域是从 `-128` 到 `127`, 而 `uint8` 类型整数的值域是从 `0` 到 `255`.
 
@@ -415,7 +414,7 @@ func main(){
 ----
 <1> 当直接输出 byte 值,就是输出了对应字符的 码值,输出结果为: c1=97 c2=48
 <2> 如果需要输出对应字符,需要格式化输出,输出结果为: c1=a c2=0
-<3> 如果我们保存的字符在 ASCII 表,比如 [0-1,a-z,A-Z] 则可以直接保存到 `byte`.如果保存的字符对应的码值大于 `255` ,这时可以考虑使用 `int` 类型保存.输出结果为:c3=北 c3对应的码值=21271
+<3> 如果我们保存的字符在 ASCII 表,比如[0-1,a-z,A-Z] 则可以直接保存到 `byte`.如果保存的字符对应的码值大于 `255` ,这时可以考虑使用 `int` 类型保存.输出结果为:c3=北 c3对应的码值=21271
 ====
 
 字符串使用细节
@@ -441,7 +440,7 @@ func main(){
 [[go-getting-started-data-type-base-plural]]
 ==== 复数
 
-Go 语言提供了两种精度的复数类型: `complex64` 和 `complex128`,分别对应 `float32` 和 `float64` 两种浮点数精度.内置的 `complex` 函数用于构建复数,内建的 `real` 和 `imag` 函数分别返回复数的实部和虚部.
+Go语言提供了两种精度的复数类型: `complex64` 和 `complex128`,分别对应 `float32` 和 `float64` 两种浮点数精度.内置的 `complex` 函数用于构建复数,内建的 `real` 和 `imag` 函数分别返回复数的实部和虚部.
 
 复数也可以用 `==` 和 `!=` 进行相等比较.只有两个复数的实部和虚部都相等的时候它们才是相等的. `math/cmplx` 包提供了复数处理的许多函数,例如求复数的平方根函数和求幂函数.
 
@@ -470,7 +469,7 @@ Go 语言的字符串是由单个字节连接起来的,Go 语言的字符串的�
 [[go-getting-started-data-type-complex-pointer]]
 ==== 指针
 
-指针(pointer)在 Go 语言中可以被拆分为两个核心概念:
+指针(pointer)在Go语言中可以被拆分为两个核心概念:
 
 * 指针类型,允许对这个指针类型的数据进行修改,传递数据可以直接使用指针,而无须拷贝数据,指针类型不能进行偏移和运算.
 * 切片,由指向起始元素的原始指针、元素数量和容量组成.
@@ -568,26 +567,26 @@ func main() {
 package main
 import "fmt"
 // 交换函数
-func swap(a, b *int) { // <1>
+func swap(a, b *int) { <1>
     // 取a指针的值, 赋给临时变量t
-    t := *a // <2>
+    t := *a <2>
     // 取b指针的值, 赋给a指针指向的变量
-    *a = *b // <3>
+    *a = *b <3>
     // 将a指针的值赋给b指针指向的变量
-    *b = t // <4>
+    *b = t <4>
 }
 func main() {
 // 准备两个变量, 赋值1和2
-    x, y := 1, 2 // <5>
+    x, y := 1, 2 <5>
     // 交换变量值
-    swap(&x, &y) // <6>
+    swap(&x, &y) <6>
     // 输出变量值
     fmt.Println(x, y) // 2 1 <7>
 }
 ----
 <1> 定义一个交换函数,参数为 a、b,类型都为 *int 指针类型.
 <2> 取指针 a 的值,并把值赋给变量 t,t 此时是 int 类型.
-<3> 取 b 的指针值,赋给指针 a 指向的变量.注意,此时 *a 的意思不是取 a 指针的值,而是“a 指向的变量”.
+<3> 取 b 的指针值,赋给指针 a 指向的变量.注意,此时*a的意思不是取 a 指针的值,而是“a 指向的变量”.
 <4> 将 t 的值赋给指针 b 指向的变量.
 <5> 准备 x、y 两个变量,分别赋值为 1 和 2,类型为 int.
 <6> 取出 x 和 y 的地址作为参数传给 swap() 函数进行调用.
@@ -796,7 +795,7 @@ func main() {
 	fmt.Println("slice2 cap=",cap(slice)) // slice2 cap= 4
 }
 ----
-<1> 通过 `make` 创建的切片可以指定大小和容量,如果没有给切片中的元素赋值,则使用 <<go-getting-started-data-type-default>>.通过 make 方式创建的切片对应的数组
+<1> 通过 `make` 创建的切片可以指定大小和容量,如果没有给切片中的元素赋值,则使用 <<getting-started.adoc#go-getting-started-data-type-default>>.通过 make 方式创建的切片对应的数组
 是由 `make` 底层维护,对外不可见,则只能通过 `slice` 去访问各个元素
 ====
 +
@@ -878,7 +877,7 @@ func main() {
 	fmt.Println("slice2=",slice2) // slice2= [100]
 }
 ----
-. 使用 append <<go-function-infunction>>,可以对切片动态添加
+. 使用 append <<function.adoc#go-function-infunction>>,可以对切片动态添加
 +
 ====
 [source,go]
@@ -900,7 +899,7 @@ func main() {
 <1> 通过 `append` 直接给 `slice3` 追加具体元素
 <2> 通过 `append` 将 `slice3` 切片追加给 `slice3`
 ====
-. 切片的拷贝,切片使用 copy <<go-function-infunction>> 来完成拷贝
+. 切片的拷贝,切片使用 copy <<function.adoc#go-function-infunction>> 来完成拷贝
 +
 ====
 [source,go]
@@ -969,7 +968,7 @@ string 是不可变的,也就是说不能通过 `str[0] = 'a'` 方式来修改�
 
 . 切片初始化时 `var slice = arr[startIndex:endIndex]` .从 `arr` 数组下标为 `startIndex` ,取到 `endIndex` 的元素(不包含 `arr[endIndex]`)
 . 切片初始化时,仍然不可以越界,范围在 `[0-len(arr)]` 之间,但是可以动态增长
-. cap 是一个 <<go-function-infunction>>,用于统计切片的容量,即最大可以存放多少元素
+. cap 是一个 <<function.adoc#go-function-infunction>>,用于统计切片的容量,即最大可以存放多少元素
 . 切片定义完成之后,还不能使用,因为本身就是一个空的,需要让其引用到一个数组,或者使用 `make` 一个空间供切片使用
 . slice 是引用传递,所以在传递时,遵守引用传递机制
 
@@ -1021,7 +1020,7 @@ func main(){
 	fmt.Println(map1) // map[no1:宋江 no2:宋江 no3:武松 no4:吴用]
 }
 ----
-<1> map 在使用前一定要 `make`.`make` 是 <<go-function-infunction>>
+<1> map 在使用前一定要 `make`.`make` 是 <<function.adoc#go-function-infunction>>
 <2> map 的 `key` 不能重复,如果重复了,则以最后这个 `kay-value` 为准
 <3> map 的 `value` 可以重复
 <4> map 的 `key-value` 是无序的
@@ -1055,7 +1054,7 @@ fmt.Println(map3)
 ===== map 的操作
 
 . `map["key"] = value` // 如果 key 还没有,就是新增,如果 key 存在,就是修改
-. `delete(map,"key")`,`delete` 是一个 <<go-function-infunction>>,如果 `key` 存在,就删除,如果 `key` 不存在,不操作,但是也不会报出错
+. `delete(map,"key")`,`delete` 是一个 <<function.adoc#go-function-infunction>>,如果 `key` 存在,就删除,如果 `key` 不存在,不操作,但是也不会报出错
 . `map` 没有批量删除,我们只能通过遍历 `key` ,逐个删除 或者 `map = make(...)` ,`make` 一个新的,让原来的称为垃圾,被 gc 回收
 . `map` 通过 `value,bool := map["key"]` 方法查找.如果存在值, `bool` 返回 `true`,否则返回 `false`
 . map 的遍历使用 `for-range` 结构
@@ -1108,7 +1107,7 @@ func main(){
 
 在 Go 中,函数也是一种 **数据类型**,可以赋值给一个变量,该变量就是一个函数类型的变量.通过该变量可以对函数进行调用.
 
-有关函数的详细介绍,请参考 <<go-function>> 章节
+有关函数的详细介绍,请参考 <<function.adoc#go-function>> 章节
 
 [source,go]
 ----
@@ -1140,17 +1139,17 @@ func main(){
 [[go-getting-started-data-type-complex-struct]]
 ==== 结构体(struct)
 
-有关结构体的详细信息 在 <<go-oop-struct>> 章节进行了详细介绍
+有关结构体的详细信息 在 <<oop.adoc#go-oop-struct>> 章节进行了详细介绍
 
 [[go-getting-started-data-type-complex-channel]]
 ==== 管道
 
-有关管道的详细信息 在 <<go-concurrency-channel>> 章节进行了详细介绍
+有关管道的详细信息 在 <<concurrency.adoc#go-concurrency-channel>> 章节进行了详细介绍
 
 [[go-getting-started-data-type-complex-interface]]
 ==== 接口
 
-有关结构体的详细信息 在 <<go-oop-interface>> 章节进行了详细介绍
+有关结构体的详细信息 在 <<oop.adoc#go-oop-interface>> 章节进行了详细介绍
 
 [[go-getting-started-data-type-custom]]
 === 自定义数据类型

@@ -9,7 +9,7 @@ Go 编程语言是一个使得程序员更加有效率的开源项目.Go 是有�
 
 Go语言也称为 Golang,是由 Google 公司开发的一种静态强类型、编译型、并发型、并具有垃圾回收功能的编程语言.
 
-接下来从几个方面来具体介绍一下 Go 语言的特性.
+接下来从几个方面来具体介绍一下Go语言的特性.
 
 === 语法简单
 
@@ -28,7 +28,7 @@ Go语言也称为 Golang,是由 Google 公司开发的一种静态强类型、�
 [[go-version]]
 == Golang 的发展历程
 
-* 2007 年,谷歌工程师 Rob Pike, Ken Thompson 和 Robert Griesemer 开始设计一门全新的语言,这是 Go 语言的最初原型.
+* 2007 年,谷歌工程师 Rob Pike, Ken Thompson 和 Robert Griesemer 开始设计一门全新的语言,这是Go语言的最初原型.
 * 2009 年 11 月 10 日,Go 语言以开放源代码的方式向全球发布.
 * 2011 年 3 月 16 日,Go 语言的第一个稳定(stable)版本 r56 发布.
 * 2012 年 3 月 28 日,Go 语言的第一个正式版本 Go1 发布.
@@ -62,20 +62,20 @@ image::{oss-images}/go-logo-blue.svg[quick1]
 
 吉祥物:
 
-Go 语言有一个吉祥物,在会议、文档页面和博文中,大多会包含下图所示的 Go Gopher,这是才华横溢的插画家 Renee French 设计的,她也是 Go 设计者之一 Rob Pike 的妻子.
+Go语言有一个吉祥物,在会议、文档页面和博文中,大多会包含下图所示的 Go Gopher,这是才华横溢的插画家 Renee French 设计的,她也是 Go 设计者之一 Rob Pike 的妻子.
 
 image::{oss-images}/home-gopher.png[]
 
 === gopher 的含义
 
-gopher 是一种生活在加拿大的小动物,go 的吉祥物就是这个小动物, 它的中文名叫做 https://baike.baidu.com/item/%E5%9B%8A%E5%9C%B0%E9%BC%A0/7633156?fr=aladdin[囊地鼠], 这种动物有个特点就是生活在底下,哈哈,当然这个不是最关键的,他们最大的特点就是挖洞速度特别快,当然 可能不止是挖洞啦.笔者猜测 go 之所以叫 go,是想表达这门语言的运行速度、开发速度、学习速度(develop)都像 gopher 一样快.
+gopher是一种生活在加拿大的小动物,go的吉祥物就是这个小动物, 它的中文名叫做 https://baike.baidu.com/item/%E5%9B%8A%E5%9C%B0%E9%BC%A0/7633156?fr=aladdin[囊地鼠], 这种动物有个特点就是生活在底下,哈哈,当然这个不是最关键的,他们最大的特点就是挖洞速度特别快,当然 可能不止是挖洞啦.笔者猜测go之所以叫go,是想表达这门语言的运行速度、开发速度、学习速度(develop)都像gopher一样快.
 
 [[go-sample]]
 == Golang 的应用
 
 === 区块链应用
 
-区块链技术,简称 BT(Blockchain technology),也被称之为分布式账本技术,是一种互联网数据库技术,其特点是去中心化,公开透明,让每个人均可参与数据库记录
+区块链技术,简称BT(Blockchain technology),也被称之为分布式账本技术,是一种互联网数据库技术,其特点是去中心化,公开透明,让每个人均可参与数据库记录
 
 === 后台服务器应用
 
@@ -89,9 +89,9 @@ Docker 是一种操作系统层面的虚拟化技术,可以在操作系统和应
 
 项目链接:; https://github.com/docker/docker[https://github.com/docker/docker]
 
-* Go 语言
+* Go语言
 
-Go 语言自己的早期源码使用 C 语言和汇编语言写成.从 Go 1.5 版本后,完全使用 Go 语言自身进行编写.Go 语言的源码对了解 Go 语言的底层调度有极大的参考意义,建议希望对 Go 语言有深入了解的读者读一读.
+Go语言自己的早期源码使用C语言和汇编语言写成.从 Go 1.5 版本后,完全使用Go语言自身进行编写.Go语言的源码对了解Go语言的底层调度有极大的参考意义,建议希望对Go语言有深入了解的读者读一读.
 
 项目链接: https://github.com/golang/go[https://github.com/golang/go]
 
@@ -109,13 +109,13 @@ Google 公司开发的构建于 Docker 之上的容器调度服务,用户可以�
 
 * beego
 
-beego 是一个类似 Python 的 Tornado 框架,采用了 RESTFul 的设计思路,使用 Go 语言编写的一个极轻量级、高可伸缩性和高性能的 Web 应用框架.
+beego 是一个类似 Python 的 Tornado 框架,采用了 RESTFul 的设计思路,使用Go语言编写的一个极轻量级、高可伸缩性和高性能的 Web 应用框架.
 
 项目链接: https://github.com/astaxie/beego[https://github.com/astaxie/beego]
 
 * martini
 
-一款快速构建模块化的 Web 应用的 Go 语言框架.
+一款快速构建模块化的 Web 应用的Go语言框架.
 
 项目链接: https://github.com/go-martini/martini[https://github.com/go-martini/martini]
 
@@ -133,17 +133,17 @@ Go 语言强大的调试器,被很多集成环境和编辑器整合.
 
 === 那些公司使用 GOlang 语言
 
-Go 语言是谷歌在 2009 年发布的一款编程语言,自面世以来它以高效的开发效率和完美的运行速度迅速风靡全球,被誉为“21 世纪的 C 语言”.
+Go 语言是谷歌在 2009 年发布的一款编程语言,自面世以来它以高效的开发效率和完美的运行速度迅速风靡全球,被誉为“21 世纪的C语言”.
 
 现在越来越多的公司开始使用 Go 语言开发自己的服务,同时也诞生了很多使用Go语言开发的服务和应用,比如 Docker、k8s 等,下面我们来看一下,有哪些大公司在使用 Go 语言.
 
 * Google
 
-作为创造了 Go 语言的 google 公司,当然会力挺 Go 语言了.Google 有很多基于 Go 开发的开源项目,比如 kubernets,docker,大家可以参考《哪些项目使用 Go 语言开发》一节了解更多的Go语言开源项目.
+作为创造了 Go 语言的 google 公司,当然会力挺 Go 语言了.Google 有很多基于 Go 开发的开源项目,比如 kubernets,docker,大家可以参考《哪些项目使用Go语言开发》一节了解更多的Go语言开源项目.
 
 * Facebook
 
-Facebook 也在使用 Go 语言,为此他们还专门在 Github 上建立了一个开源组织 facebookgo.大家可以通过 https://github.com/facebookgo[https://github.com/facebookgo] 访问查看 facebook 开源的项目,其中最具代表性的就是著名平滑重启工具 grace.
+Facebook 也在使用Go语言,为此他们还专门在 Github 上建立了一个开源组织 facebookgo.大家可以通过 https://github.com/facebookgo[https://github.com/facebookgo] 访问查看 facebook 开源的项目,其中最具代表性的就是著名平滑重启工具 grace.
 
 * 腾讯
 
@@ -151,7 +151,7 @@ Facebook 也在使用 Go 语言,为此他们还专门在 Github 上建立了一�
 
 * 百度
 
-百度主要在运维方面使用到了 Go 语言,比如百度运维的一个 BFE 项目,主要负责前端流量的接入,其次就是百度消息通讯系统的服务器端也使用到了 Go 语言.
+百度主要在运维方面使用到了Go语言,比如百度运维的一个 BFE 项目,主要负责前端流量的接入,其次就是百度消息通讯系统的服务器端也使用到了Go语言.
 
 * 七牛云
 
@@ -163,7 +163,7 @@ Facebook 也在使用 Go 语言,为此他们还专门在 Github 上建立了一�
 
 * 小米
 
-小米对 Go 语言的支持,在于运维监控系统的开源,它的官方网址是 http://open-falcon.org[http://open-falcon.org].此外,小米互娱、小米商城、小米视频、小米生态链等团队都在使用Go语言.
+小米对Go语言的支持,在于运维监控系统的开源,它的官方网址是 http://open-falcon.org[http://open-falcon.org].此外,小米互娱、小米商城、小米视频、小米生态链等团队都在使用Go语言.
 
 * 360
 
@@ -183,7 +183,6 @@ GoLand 是 Jetbrains 家族的 Go 语言 IDE,有 30 天的免费试用期.
 下载地址 https://www.jetbrains.com/go/[https://www.jetbrains.com/go/]
 
 * LiteIDE
-
 LiteIDE 是一款开源、跨平台的轻量级 Go 语言集成开发环境(IDE).
 
 下载地址: http://sourceforge.net/projects/liteide/files/[http://sourceforge.net/projects/liteide/files/]
@@ -191,6 +190,7 @@ LiteIDE 是一款开源、跨平台的轻量级 Go 语言集成开发环境(IDE)
 源码地址: https://github.com/visualfc/liteide[https://github.com/visualfc/liteide]
 
 * Eclipse
+
 * VS Code
 * Sublime Text
 * Vim

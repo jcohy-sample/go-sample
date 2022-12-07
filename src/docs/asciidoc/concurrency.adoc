@@ -184,7 +184,7 @@ image::{oss-images}/bufferedchannel.png[]
 
 ==== 关闭 channel
 
-使用 <<go-function-infunction>> `close` 可以关闭 `channel`,当 `channel` 关闭后,就不能再向 `channel` 写数据了,但是仍然可以从该 `channel` 读取数据
+使用 <<function.adoc#go-function-infunction>> `close` 可以关闭 `channel`,当 `channel` 关闭后,就不能再向 `channel` 写数据了,但是仍然可以从该 `channel` 读取数据
 [source,go]
 ----
 ch := make(chan int)

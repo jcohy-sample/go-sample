@@ -41,7 +41,7 @@ func test(b interface{}){
 ----
 <1> 将 `interface{}` 转为 `reflect.Value`
 <2> 将 `reflect.Value` 转为 `interface{}`
-<3> 将 `interface{}` 转成原来的变量类型, 使用 <<go-oop-polymorphism-predicate>>
+<3> 将 `interface{}` 转成原来的变量类型, 使用 <<oop.adoc#go-oop-polymorphism-predicate>>
 ====
 
 image::{oss-images}/go8.png[]
