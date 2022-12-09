@@ -16,7 +16,7 @@ go get -u github.com/go-sql-driver/mysql
 
 DB 结构体说明
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type DB struct {
     // 内含隐藏或非导出字段
@@ -31,7 +31,7 @@ sql 包会自动创建和释放连接；它也会维护一个闲置连接的连�
 Open 函数说明
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func Open(driverName, dataSourceName string) (*DB, error) // <1>
 ----
@@ -48,7 +48,7 @@ Open 函数可能只是验证其参数，而不创建与数据库的连接。如
 
 我们在 utils 包下创建一个 db.go 文件
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -95,7 +95,7 @@ email VARCHAR(100)
 
 === 插入数据
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package model
 
@@ -126,7 +126,7 @@ func (user *User) AddUser() error{
 
 然后编写测试方法测试一下
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package model
 
@@ -150,7 +150,7 @@ func TestUser_AddUser(t *testing.T) {
 
 === 获取数据
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func (user *User) GetUserInfo(userId int) (*User, error){
 
@@ -178,7 +178,7 @@ func (user *User) GetUserInfo(userId int) (*User, error){
 
 编写测试方法
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func TestUser_GetUserInfo(t *testing.T) {
 	fmt.Println("获取用户")
@@ -194,7 +194,7 @@ func TestUser_GetUserInfo(t *testing.T) {
 
 === 获取多条数据
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func (user *User) GetUsers() ([]*User ,error){
 
@@ -232,7 +232,7 @@ func (user *User) GetUsers() ([]*User ,error){
 
 测试
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func TestUser_GetUsers(t *testing.T) {
 	fmt.Println("批量获取用户")

@@ -41,7 +41,7 @@ func main() { //<4>
 ----
 <1> 首行这个是必须的.所有的 Go 文件以 package <something> 开头,对于独立运行的执行文件必须是 `package main`
 <2> 这是说需要将fmt 包加入 main.不是 main 的其他包都被称为库.末尾以 `//` 开头的内容是注释;
-<3> 这同样是注释,不过这是被包裹于 `/*` 和 `*/` 之间的;
+<3> 这同样是注释,不过这是被包裹于 `/{star}` 和 `{star}/` 之间的;
 <4> package main 必须首先出现,紧跟着是 `import`.在 Go 中,`package` 总是首先出现,然后是 `import`,然后是其他所有内容.当 Go 程序在执行的时候,首先调用的函数 是 main. `main()`,这是从 C 中继承而来.这里定义了这个函数;
 <5> 调用了来自于 fmt 包的函数打印字符串到屏幕.字符串由 `"` 包裹,并且可以包含非 ASCII 的字符.
 ====
@@ -281,7 +281,7 @@ func main(){
 
 * 一次性声明,使用 `()`
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -392,7 +392,7 @@ Golang 中没有专门的字符类型,如果要存储单个字符(字母),一般
 ====
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -444,7 +444,7 @@ Go语言提供了两种精度的复数类型: `complex64` 和 `complex128`,分�
 
 复数也可以用 `==` 和 `!=` 进行相等比较.只有两个复数的实部和虚部都相等的时候它们才是相等的. `math/cmplx` 包提供了复数处理的许多函数,例如求复数的平方根函数和求幂函数.
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 z := x + yi
 x = real(z)
@@ -480,7 +480,7 @@ Go 语言的字符串是由单个字节连接起来的,Go 语言的字符串的�
 
 每个变量在运行时都拥有一个地址,这个地址代表变量在内存中的位置.Go 语言中使用在变量名前面添加 `&` 操作符(前缀)来获取变量的内存地址(取地址操作),格式如下:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 ptr := &v    // v 的类型为 T
 ----
@@ -488,7 +488,7 @@ ptr := &v    // v 的类型为 T
 其中 `v` 代表被取地址的变量,变量 `v` 的地址使用变量 `ptr` 进行接收,`ptr` 的类型为 `{asterisk}T`,称做 `T` 的指针类型,`{asterisk}` 代表指针.
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -515,7 +515,7 @@ func main() {
 当使用 `&` 操作符对普通变量进行取地址操作并得到变量的指针后,可以对指针使用 `*` 操作符,也就是指针取值,代码如下.
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -562,7 +562,7 @@ func main() {
 前面已经演示了使用多重赋值的方法进行数值交换,使用指针同样可以进行数值交换,代码如下:
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import "fmt"
@@ -597,7 +597,7 @@ func main() {
 
 如果在 `swap()` 函数中交换操作的是指针值,会发生什么情况？可以参考下面代码:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import "fmt"
@@ -621,7 +621,7 @@ new(类型)
 
 一般这样写:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 str := new(string)
 *str = "Go语言教程"
@@ -650,25 +650,25 @@ image::{oss-images}/go2.png[]
 
 . 指定数组大小
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var numArr [3]int = [3]int{1,2,3}
 ----
 . 省略数组大小类型,程序会自动推断
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var numArr  = [3]int{1,2,3}
 ----
 . 使用 `[...]` 语法
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var numArr  = [...]int{1,2,3}
 ----
 . 指定下标和下标值对应
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var numArr  = [...]int{1:800,2:700,3:600}
 ----
@@ -679,7 +679,7 @@ var numArr  = [...]int{1:800,2:700,3:600}
 
 使用 for 循环
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 for i := 0;i<len(numArr);i++ {
     fmt.Println(numArr[i])
@@ -689,7 +689,7 @@ for i := 0;i<len(numArr);i++ {
 for-range 结构遍历,for-range 是 Go 语言的一种独有的结构,可以用来遍历访问数组的元素
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 for index,value := range array {
 ...
@@ -708,7 +708,7 @@ for index,value := range array {
 
 改写上面数组遍历的方式
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 for _,value := range numArr{
     fmt.Println(value)
@@ -743,7 +743,7 @@ for _,value := range numArr{
 
 . 定义一个切片,然后让切片去引用已经创建好的数组.如下
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -768,7 +768,7 @@ func main() {
 基本语法:
 +
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var 切片名 []type = make([]type ,len ,[cap])
 ----
@@ -778,7 +778,7 @@ var 切片名 []type = make([]type ,len ,[cap])
 请看下面的例子
 +
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -801,7 +801,7 @@ func main() {
 +
 . 定义一个切片,直接就指定具体数组,使用原理类似 make 方式.
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -843,7 +843,7 @@ image::{oss-images}/go3.png[]
 * slice 是一个引用类型
 * slice 从底层来说,其实就是一个数据结构(struct 结构体)
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type slice struct{
     ptr *[2]int
@@ -856,7 +856,7 @@ type slice struct{
 
 . 切片可以继续切片
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -880,7 +880,7 @@ func main() {
 . 使用 append <<function.adoc#go-function-infunction>>,可以对切片动态添加
 +
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -902,7 +902,7 @@ func main() {
 . 切片的拷贝,切片使用 copy <<function.adoc#go-function-infunction>> 来完成拷贝
 +
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -944,7 +944,7 @@ for _,value := range slice3 {
 ===== string 和 slice
 
 string 底层是一个 byte 数组,因此可以进行切片处理
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -992,7 +992,7 @@ Golang 中的 map 的 `key` 可以是很多种类型,比如,`bool`,`数字`,`str
 
 例如如下定义
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var map1 map[string] string
 var map2 map[string] int
@@ -1003,7 +1003,7 @@ var map4 map[string] map[string]string
 声明 `map` 是不会分配内存的,初始化需要 `make`,分配内存后才能赋值和使用
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -1031,7 +1031,7 @@ func main(){
 . 在使用之前,先 `make`,`make` 的作用就是给 `map` 分配数据空间.如上面的例子
 . 使用类型推导
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 map2 := make(map[string]string,20)
 map2["no1"]  = "宋江"
@@ -1042,7 +1042,7 @@ fmt.Println(map1)
 ----
 . 直接赋值
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 map3 := map[string]string{
     "no1":"宋江",
@@ -1062,7 +1062,7 @@ fmt.Println(map3)
 . 切片数据类型如果是 `map`,则我们称为 `map` 切片.这样使用 `map` 个数就可以动态变化了.
 . Golang 中的 `map` 默认是无序的,注意也不是按照添加的顺序存放的,如果需要对 `map` 进行排序,是先将 `key` 排序,然后根据 `key` 值遍历输出即可.如下
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -1109,7 +1109,7 @@ func main(){
 
 有关函数的详细介绍,请参考 <<function.adoc#go-function>> 章节
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func main(){
 	a := getSum
@@ -1124,7 +1124,7 @@ func test02(n1 int){
 
 函数既然是一种数据类型,因此在 Go 中,可以作为形参,并且调用.接上例,我们新定义一个函数,接收一个函数
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func test03(funvar func(int, int) int, num1 int, num2 int) int {
 	return funvar(num1,num2)
@@ -1159,7 +1159,7 @@ func main(){
 基本语法: type 自定义数据类型 数据类型. 如下
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func main(){
 
@@ -1221,7 +1221,7 @@ Golang 和 java/c 不同,Go 在不同类型的变量之间赋值时需要显示�
 `v`: 就是需要转换的变量
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -1255,7 +1255,7 @@ func main()  {
 
 * func Sprintf(format string, a ...interface{}) string
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -1284,7 +1284,7 @@ func main(){
 
 * 使用 strconv 包的函数
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -1314,7 +1314,7 @@ func main(){
 
 * 使用 strconv 包的函数
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -1367,7 +1367,7 @@ Go 语言内置的运算符有:
 ====
 Golang 语言明确不支持 三元运算符.如果需要实现三元运算的效果,如下
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 if expr{
 	n = trueVal
@@ -1411,7 +1411,7 @@ if expr{
 . Golang 的自增和自减是语句,不是表达式,因此不能赋值给另外的变量,不能这样使用: `a = i++` ,`a =i --`
 . Golang 的 `{plus}{plus}` 和 `--` 只能写在变量的后面,不能写在变量的前面.即,只有 `a{plus}{plus}`,`a--`,没有 `{plus}{plus}a`,`--a`
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -1477,7 +1477,7 @@ func main() {
 | >= | 检查左边值是否大于等于右边值,如果是返回 True 否则返回 False.  | (A >= B) 为 False
 |===
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -1522,7 +1522,7 @@ func main() {
 . && 也叫短路与:如果第一个条件为 `false`,则第二个条件不会判断.最终结果为 `false`
 . || 也叫短路或:如果第一个条件为 `true`,则第二个条件不会判断,最终结果为 `true`
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -1620,7 +1620,7 @@ Golang 语言支持的位运算符如下表所示.假定 A 为 60,B 为 13:
 |>>	| 右移运算符 ">>" 是双目运算符.右移n位就是除以 2 的 n 次方. 其功能是把 ">>" 左边的运算数的各二进位全部右移若干位,">>" 右边的数指定移动的位数.	| A >> 2 结果为 15 ,二进制为 0000 1111
 |===
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -1681,7 +1681,7 @@ func main() {
 . 运算顺序从右向左
 . 赋值运算符的左边只能是 **变量** ,右边可以是 **变量,表达式,常量值**
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -1741,7 +1741,7 @@ func main() {
 |*	| 指针变量.	| *a; 是一个指针变量
 |===
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -1803,7 +1803,7 @@ func main() {
 
 有两个变量, a和b, 要求将其进行交换, 但是不允许使用中间变量, 最终打印结果
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -1827,7 +1827,7 @@ func main() {
 
 求出三个数的最大值思路: 先求出两个数的最大值,
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -1932,7 +1932,7 @@ if 语句使用注意事项
 
 Golang 支持在 if 中,直接定义一个局部变量.比如:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 if age:=20; age >18{
 	fmt.Println("你的年龄大于18岁")
@@ -1946,7 +1946,7 @@ if age:=20; age >18{
 语法格式:
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 switch i {                 //<1>
 case 0:                    //<2>
@@ -1969,7 +1969,7 @@ default:                   //<5>
 `switch` 后面的表达式不是必需的,这种结构与多个 `if...else if` 的逻辑作用等同
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 switch {                   //<1>
 case 0 == i:
@@ -2007,7 +2007,7 @@ switch 使用注意事项
 
 基本语法
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 for 循环变量初始化;循环条件;循环变量迭代{
 	循环操作(语句)
@@ -2019,7 +2019,7 @@ for 语句的多种格式
 格式1:
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -2040,7 +2040,7 @@ func main(){
 格式2:
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 k := 1
 
@@ -2059,7 +2059,7 @@ for { <1>
 格式3:
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 j := 0
 
@@ -2073,7 +2073,7 @@ for j <= 10 {
 格式4:Golang 提供 `for-range` 的方式,可以方便的遍历字符串和数组
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 mySlice := []int{1, 2, 3, 4}              //<1>
 sum := 0
@@ -2088,7 +2088,7 @@ for i, l := 0, len(mySlice); i < l; i++ { //<2>
 或者使用下面这种方式
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 for _, v := range mySlice {               // <1>
   sum += v                             // <2>
@@ -2105,7 +2105,7 @@ Golang 语言没有 `while` 和 `do..while` 语法,可以通过 `for` 循环来�
 
 while 的实现
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -2130,7 +2130,7 @@ func main(){
 
 do..while 实现
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -2159,7 +2159,7 @@ func main(){
 
 三个语法都可以配合标签使用,标签区分大小写
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 label1:
 for {

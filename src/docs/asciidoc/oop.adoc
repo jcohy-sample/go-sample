@@ -20,7 +20,7 @@ Golang 面向对象(OOP)很优雅,OOP 本身就是语言类型系统(type system
 === 声明结构体
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type 结构体名称 struct {
     field1 type <1>
@@ -40,7 +40,7 @@ type 结构体名称 struct {
 我们通过一个简单的例子来介绍结构体的使用,首先先定义一个结构体
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type Person struct {
 	Name string <1>
@@ -57,26 +57,26 @@ type Person struct {
 
 . 直接声明
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var person1 Person
 ----
 . 使用 `{}` 声明,可以直接给字段赋值
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var person2 Person = Person{}
 ----
 . 使用 `&` 声明
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var person3 *Person = new(Person)
 ----
 因为 `person3` 是一个指针,因此标准的给字段赋值方式为: `(*person3).Name = "jcohy"` 也可以这么写 `person3.Name = "jcohy"` .Go 的设计者在底层会对 `person3.Name = "jcohy"` 进行处理,会给 person3 加上取值运算
 . 使用 `&` 和 `{}`,可以直接给字段赋值
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var person4 *Person = &Person{}
 ----
@@ -89,7 +89,7 @@ var person4 *Person = &Person{}
 
 以下面的例子来说明结构体在内存中如何存在
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -130,7 +130,7 @@ image::{oss-images}/go9.png[]
 
 . 结构体的所有字段再内存中是连续的
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import "fmt"
@@ -177,7 +177,7 @@ func main() {
 ----
 . 结构体是用户单独定义的类型,和其他类型进行转换时需要有完全相同的字段(名字,个数个类型)
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import "fmt"
@@ -217,7 +217,7 @@ func main() {
 . 结构体进行 type 重新定义(相当于取别名),Golang 认为是新的数据类型,但是相互间可以强转
 . struct 的每个字段上, 可以写上一个 `tag`,该 `tag` 可以通过反射机制获取,常见的使用场景就是序列化和反序列化
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type Monster struct {
 	Name string `json:"name"`
@@ -244,7 +244,7 @@ Golang 的结构体没有构造函数, 可以使用工厂模式来解决这个�
 
 如果 model 包的结构体变量首字母小写, 引入后, 不能直接使用, 可以使用工厂模式解决. 如下
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package model
 
@@ -277,7 +277,7 @@ interface 类型可以定义一组方法,但是这些不需要实现,并且 inte
 
 接口的基本语法
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type 接口名 interface{
 	method1(参数列表) 返回值列表
@@ -288,7 +288,7 @@ type 接口名 interface{
 
 接口的实现
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func (t 自定义类型) method1(参数列表) 返回值列表{
 	// 方法实现
@@ -305,7 +305,7 @@ Golang 中的接口,不需要显式的实现,只要一个变量,含有接口类�
 === 示例
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -396,7 +396,7 @@ func main(){
 . 给结构体所在的包提供一个 <<go-oop-struct-sample-factory>>,首字母大写,类似一个构造函数
 . 提供一个首字母大写的 Set 方法(类似其他语言的 public),用于对属性判断并赋值
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func (var 结构体类型名) SetXxx(参数列表) (返回值列表){
 	var.字段 = 参数
@@ -404,7 +404,7 @@ func (var 结构体类型名) SetXxx(参数列表) (返回值列表){
 ----
 . 提供一个首字母大写的 Get 方法(类似其他语言的 public),用于获取属性的值
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func (var 结构体类型名) GetXxx() (返回值列表){
 	return var.字段
@@ -492,7 +492,7 @@ func main(){
 
 嵌套匿名结构体的语法
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -511,7 +511,7 @@ type Book struct{
 我们来看一个案例:编写一个学生考试系统
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -575,7 +575,7 @@ func main(){
 . 结构体嵌入两个(或多个)匿名结构体,如果两个匿名结构体有相同的字段和方法(同时结构体本身没有同名的字段和方法),在访问时,就必须明确指定匿名结构体名字,否则编译报错
 . 如果一个 struct 嵌套了一个有名的结构体,这种模式就是组合,如果是组合关系,那么在访问组合的结构体的字段或方法时,必须带上结构体的名字
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -598,7 +598,7 @@ func main() {
 ----
 . 嵌套匿名结构体后,也可以在创建结构体变量(实例)时,直接指定各个匿名结构体字段的值
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -644,7 +644,7 @@ func main(){
 ----
 . 结构体的匿名字段是基本数据类型,就不能有第二个,如果需要多个基本类型的字段,则必须给字段指定名字
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type E struct {
 	int
@@ -665,7 +665,7 @@ func main() {
 
 接口体现多态的两种形式,第一种就如 <<go-oop-interface-sample>> 所示,通过参数实现多态.第二种是通过多态数组,我们将此例进行修改,来使用多态数组来实现多态
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -733,7 +733,7 @@ func main(){
 由于接口是一般类型,不知道具体类型,如果要转成具体类型,就需要使用类型断言,看下面的例子
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -754,7 +754,7 @@ func main()  {
 
 如何在进行断言的时候,带上检测机制,如果成功就 ok,否则也不要报 panic
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -784,7 +784,7 @@ func main() {
 
 实现对 Hero 结构体切片的排序: `sort.Sort(data interface)`
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -883,7 +883,7 @@ func main() {
 
 模拟实现基于文本界面的 "家庭记账软件", 该软件能够记录家庭的收入, 支出, 并能够打印收支明细表
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package utils
 import (
@@ -1030,7 +1030,7 @@ func main() {
 
 在 model 包下声明一个 `Customer` 结构体, 表示一个客户信息
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package model
 import (
@@ -1084,7 +1084,7 @@ func (this Customer) GetInfo()  string {
 
 在 service 包下声明一个 `CustomerService` 结构体, 完成对 `Customer` 的操作,包括增删改查
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package service
 import (
@@ -1155,7 +1155,7 @@ func (this *CustomerService) FindById(id int)  int {
 
 在 main 函数中, 创建一个 `customerView`,并运行显示主菜单..
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 

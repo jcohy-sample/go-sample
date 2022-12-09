@@ -30,7 +30,7 @@ image::{oss-images}/go6.png[]
 
 `goroutine` 是一个普通的函数,只是需要使用关键字 `go` 作为开头.看下面的例子
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -129,7 +129,7 @@ https://i6448038.github.io/2017/12/04/golang-concurrency-principle[Go并发原�
 ==== 定义/声明 channel
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 var 变量名 chan 数据类型
 ----
@@ -143,7 +143,7 @@ var 变量名 chan 数据类型
 ==== 初始化
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 unBufferChan := make(chan int)  // <1>
 bufferChan := make(chan int, N) // <2>
@@ -154,7 +154,7 @@ bufferChan := make(chan int, N) // <2>
 
 ==== channel 读写操作
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 ch := make(chan int, 10)
 
@@ -185,7 +185,7 @@ image::{oss-images}/bufferedchannel.png[]
 ==== 关闭 channel
 
 使用 <<function.adoc#go-function-infunction>> `close` 可以关闭 `channel`,当 `channel` 关闭后,就不能再向 `channel` 写数据了,但是仍然可以从该 `channel` 读取数据
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 ch := make(chan int)
 
@@ -204,7 +204,7 @@ close(ch)
 . 在遍历时,如果 `channel` 没有关闭,则会出现 dead lock 错误
 . 在遍历时,如果 `channel` 已经关闭,则会正常遍历数据,遍历完成后,就会退出遍历
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -256,7 +256,7 @@ func main() {
 . 注意: writeData 和 readData 操作的是同一个 `channel`
 . 主线程需要等待 writeData 和 readData `goroutine` 都完成时才退出
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -451,7 +451,7 @@ func main() {
 
 . `channel` 可以声明为只读,或者只写
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -482,7 +482,7 @@ func main() {
 ----
 . 使用 `select` 可以解决从 `channel` 取数据阻塞的问题
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -531,7 +531,7 @@ func main() {
 ----
 . `goroutine` 中使用 `recover` ,解决 `channel` 中出现的 `panic`,导致程序崩溃的问题
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (

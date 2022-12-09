@@ -38,7 +38,7 @@ image::{oss-images}/go5.png[]
 
 OpenFile 中的 `flag` 参数说明如下.最后一个代表 Linux 权限 `r w x -> 4,2,1`
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 const (
 	// Exactly one of O_RDONLY, O_WRONLY, or O_RDWR must be specified.
@@ -221,7 +221,7 @@ func main(){
 
 编写一个程序,将一个文件的内容,写入到另一个文件中去
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -254,7 +254,7 @@ func main(){
 
 文件拷贝
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -313,7 +313,7 @@ func main() {
 
 统计英文,数字,空格和其他字符串数量
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -384,7 +384,7 @@ func main() {
 
 os.Args 是一个 string 切片,用来存储所有的命令行参数,此外,我们还可以使用 flag 包来解析命令行参数.编写一段代码,可以获取命令行的各个参数
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -435,7 +435,7 @@ JSON 是一种轻量级的数据交换格式,易于人阅读和编写,同时也�
 [[go-file-json-serial]]
 === JSON 序列化
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -554,7 +554,7 @@ func main() {
 [[go-file-json-unmarshal]]
 === JSON 反序列化
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (

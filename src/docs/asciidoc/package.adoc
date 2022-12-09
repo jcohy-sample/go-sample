@@ -19,21 +19,21 @@
 
 打包:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package 包名
 ----
 
 引入包:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 import "包的路径"
 ----
 
 引入多个包
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 import (
 	"包的路径"
@@ -61,7 +61,7 @@ import (
 
 .src/jcohy/utils.go
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 /*
 The pacakge is provide some utils <1>
@@ -90,7 +90,7 @@ func Even(a int) bool { <4>
 
 .src/main/main.go
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -125,7 +125,7 @@ D:\workspacce\awesomeProject\src\jcohy>go test
 
 我们接下来定义一个测试,测试文件也在包目录中,被命名为 `*_test.go` .这些测试文件和 Go 程序中的其他文件一样,但是 `go test` 只会执行测试函数,每个测试函数都有相同的标识,它的名字以 `Test` 开头
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func TestXxx(*testing.T)
 ----
@@ -150,7 +150,7 @@ func TestXxx(*testing.T)
 
 .src/jcohy/utils_test.go
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package jcohy <1>
 
@@ -184,7 +184,7 @@ ok      jcohy   0.253s
 
 .src/jcohy/utils_test.go
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package jcohy <1>
 

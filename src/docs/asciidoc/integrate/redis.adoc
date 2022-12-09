@@ -35,7 +35,7 @@ import "github.com/go-redis/redis/v8"
 
 下面是一个连接的例子:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func CreateClient() *redis.Client {
 	client := redis.NewClient(&redis.Options{
@@ -90,7 +90,7 @@ func CreateClient() *redis.Client {
 
 同样地, 在 go-redis 中也可以找到对应的方法, 下面是一个简单的示例:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -185,7 +185,7 @@ func stringOperation(client *redis.Client) {
 
 同样地, 在 go-redis 中也可以找到对应的方法, 下面是一个简单的示例:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 // list 操作
 func listOperation(client *redis.Client) {
@@ -250,7 +250,7 @@ func listOperation(client *redis.Client) {
 
 同样地, 在 go-redis 中也可以找到对应的方法, 下面是一个简单的示例:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 // set 操作
 func setOperation(client *redis.Client) {
@@ -319,7 +319,7 @@ func setOperation(client *redis.Client) {
 
 同样地, 在 go-redis 中也可以找到对应的方法, 下面是一个简单的示例:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 // hash 操作
 func hashOperation(client *redis.Client) {
@@ -361,7 +361,7 @@ func hashOperation(client *redis.Client) {
 
 默认情况下, redis.v8 的 redis 连接池大小是10, 不过我们可以在初始化 redis 客户端时自行设置连接池的大小, 例如:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 client := redis.NewClient(&redis.Options{
     Addr:     "localhost:6379",
@@ -375,7 +375,7 @@ client := redis.NewClient(&redis.Options{
 
 那么接下来我们来看一下这个设置有什么效果吧:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func connectPool(client *redis.Client) {
     wg := sync.WaitGroup{}
@@ -418,7 +418,7 @@ PoolStats, TotalConns: 5, FreeConns: 5
 
 === 完整示例
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -632,7 +632,7 @@ go get github.com/gomodule/redigo/redis
 [[go-integrate-redis-redisgo-get]]
 === Set/Get 接口
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -675,7 +675,7 @@ func main() {
 
 批量 Set/Get 数据
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 -,err = c.Do("MSet","name","jcohy","address","陕西")
 r,err := redis.Strings(c.Do("MGet","name","address"))
@@ -684,7 +684,7 @@ r,err := redis.Strings(c.Do("MGet","name","address"))
 [[go-integrate-redis-redisgo-hash]]
 === Hash
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -739,7 +739,7 @@ func main() {
 
 对于 hash 数据结构, field-val 是批量放入和读取
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -783,7 +783,7 @@ func main() {
 [[go-integrate-redis-redisgo-expire]]
 === 给数据设置过期时间
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 _,err = c.Do("expire","name",10)
 ----
@@ -791,7 +791,7 @@ _,err = c.Do("expire","name",10)
 [[go-integrate-redis-redisgo-list]]
 === 操作 List
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 _,err = c.Do("lpush","heroList","no1:宋江","no2:卢俊义",28)
 r,err := redis.String(c.Do("rpop","heroList"))
@@ -802,7 +802,7 @@ r,err := redis.String(c.Do("rpop","heroList"))
 
 Golang 还可以创建 redis 连接池, 节省获取 redis 连接所需的时间. 当需要操作 redis 时, 直接从连接池中获取连接
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -879,7 +879,7 @@ func main() {
 * Flush: 清空缓冲区, 将命令一次性发送至服务器
 * Recevie: 依次读取服务器响应结果, 当读取的命令未响应时, 该操作会阻塞.
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -928,7 +928,7 @@ image::{oss-images}/go13.png[]
 
 操作示例, 示例中将使用两个goroutine分别担任发布者和订阅者角色进行演示:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -989,7 +989,7 @@ func main()  {
 * DISCARD: 取消事务
 * WATCH: 监视事务中的键变化, 一旦有改变则取消事务.
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 

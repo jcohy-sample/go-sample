@@ -44,7 +44,7 @@ func main(){
 
 Handler 是一个接口，实现了 Handler 接口的对象可以注册到 HTTP 服务端，为特定的路径及其子树提供服务
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type Handler interface {
     ServeHTTP(ResponseWriter, *Request)
@@ -54,7 +54,7 @@ type Handler interface {
 ServeHTTP 应该将回复的头域和数据写入 ResponseWriter 接口然后返回，返回标志着该请求已经结束，HTTP 服务端可以转移向该连接上的下一个请求。**也就是说某个结构体实现了 Handler 接口中的 ServeHTTP 方法，那么它就是一个处理器**
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -84,7 +84,7 @@ func main(){
 
 首先来看 Server 的定义
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type Server struct {
 	// 监听的 TCP 地址，如果为空字符串，会使用 ":http"
@@ -151,7 +151,7 @@ type Server struct {
 
 Server 类型定义了运行服务端的参数，Server 的零值是合法的配置，如下示例
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -186,12 +186,12 @@ func main(){
 
 在创建服务器时，我们还可以通过 NewServeMux 方法创建一个多路复用器
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func NewServeMux() *ServeMux
 ----
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -215,7 +215,7 @@ func main(){
 
 结构体 ServeMux
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type ServeMux struct {
     // 内含隐藏或非导出字段
@@ -241,7 +241,7 @@ ServeMux 还会注意到请求的 URL 路径的无害化，将任何路径中包
 
 Go 语言的 `net/http` 包提供了一系列用于表示 HTTP 报文的结构，我们可以使用它处理请求和发送响应，其中 Request 结构代表了客户端发送的请求报文，下面我们看一看 Request 的结构体
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type Request struct {
     // Method指定HTTP方法(GET、POST、PUT等)。对客户端，""代表GET。
@@ -347,7 +347,7 @@ Request 各字段的意义和用途在服务端和客户端是不同的。除了
 
 Request 结构中的 URL 字段用于表示请求行中包含的 URL，该字段是一个指向 url.URL 结构的指针。让我们来看一下 URL 结构
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type URL struct {
     Scheme   string
@@ -423,7 +423,7 @@ r.Header.Get("Accept-Encoding") : 得到的是字符串形式的值，多个值�
 
 请求和响应的主体都是有 Request 结构中的 Body 字段表示，这个字段的类型是 `io.ReadCloser` 接口 ，该接口包含了 `Reader` 接口和 `Closer` `接口，` Reader 接口拥有 `Read` 方法， `Closer` 接口拥有 `Close` 方法
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
     //获取内容的长度
@@ -448,7 +448,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 . Form 字段只有在调用 Request 的 ParseForm 方法 后才有效。在客户端，会忽略请求中的本字段而使用 Body 替代
 . 获取表单中提交的请求参数(username 和 password)
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
     // 解析表单
@@ -464,7 +464,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 . 类型也是 `url.Values` 类型，用来获取 表单中的请求参数
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
     // 解析表单
@@ -488,7 +488,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 为了取得 `multipart/form-data` 编码的表单数据，我们需要用到 Request 结构的 `ParseMultipartForm` 方法和 `MultipartForm` 字段 ，我们通常上传文件时会将 form 表单的 enctype 属性值设置为 `multipart/form-data`
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func (r *Request) ParseMultipartForm(maxMemory int64) error
 ----
@@ -496,7 +496,7 @@ func (r *Request) ParseMultipartForm(maxMemory int64) error
 ParseMultipartForm 将请求的主体作为 `multipart/form-data` 解析。请求的整个主体都会被解析，得到的文件记录最多 `maxMemery` 字节保存在内存，其余部分保存在硬盘的 temp 文件里。如果必要，ParseMultipartForm 会自行调用 ParseForm。重复调用本方法是无意义的。
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -527,7 +527,7 @@ func main() {
 
 ResponseWriter 接口被 HTTP 处理器用于构造HTTP回复。
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type ResponseWriter interface {
     // Header返回一个Header类型值，该值会被WriteHeader方法发送。
@@ -548,7 +548,7 @@ type ResponseWriter interface {
 [[go-web-response-string]]
 === 给客户端一个字符串
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
     w.Write([]byte(" 你的请求我已经收到
@@ -558,7 +558,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 [[go-web-response-html]]
 === 给客户端一个页面
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
 	html := `<html>
@@ -577,7 +577,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 [[go-web-response-json]]
 === 给客户端一个 json
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
 	// 设置响应头中内容的类型
@@ -596,7 +596,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 [[go-web-response-redict]]
 === 让客户端重定向
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
 	// 以下操作必须要在 WriteHeader 之前进行
@@ -640,7 +640,7 @@ Go 的模板都是文本文档(其中 Web 应用的模板通常都是 HTML )，�
 ----
 . 在处理器中触发模板引擎
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
 	// 解析模板文件
@@ -660,7 +660,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 的名字至于其他文件对应的模板 则会被放到一个 map 中。 让我们再来看一下 HelloWorld 中的代码:
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 t, _ := template.ParseFiles("hello.html")  // <1>
 ----
@@ -672,7 +672,7 @@ t, _ := template.ParseFiles("hello.html")  // <1>
 
 我们在解析模板时都没有对错误进行处理， Go 提供了一个 Must 函数专门用来处理这个错误。 Must 函数可以包裹起一个函数，被包裹的函数会返回一个指向模板的指针和一个错误，如果错误不是 nil ，那么 Must 函数将产生一个 panic 。
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 t := template.Must(template.ParseFiles("hello.html"))
 ----
@@ -682,7 +682,7 @@ t := template.Must(template.ParseFiles("hello.html"))
 
 通过该函数可以通过指定一个规则一次性传入多个模板文件，如:
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 t, _ := template.ParseGlob("*.html")
 ----
@@ -700,7 +700,7 @@ t, _ := template.ParseGlob("*.html")
 ExecuteTemplate 方法类似 Execute，但是使用名为 name 的 t 关联的模板产生输出。
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
 	t,_ := template.ParseFiles("hello1.html","hello2.html")
@@ -1207,7 +1207,7 @@ Cookie 实际上就是服务器保存在浏览器上的一段信息。浏览器�
 
 Cookie 代表一个出现在 HTTP 回复的头域中 `Set-Cookie` 头的值里或者 HTTP 请求的头域中 Cookie 头的值里的 HTTP cookie。
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 type Cookie struct {
     Name       string
@@ -1238,7 +1238,7 @@ type Cookie struct {
 [[go-web-session-cookie-create]]
 ==== 创建 Cookie
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -1283,7 +1283,7 @@ Content-Type: text/plain; charset=utf 8
 
 除了 `Set` 和 `Add` 方法之外， Go 还提供了一种更快捷的设置 Cookie 的方式，就是通过 `net/http` 库中的 `SetCookie` 方法
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
 	cookie1 := http.Cookie{
@@ -1307,7 +1307,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 由于我们在发送请求时 Cookie 在请求头中，所以我们可以通过 Request 结构中的 Header 字段来获取 Cookie
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request){
  	// 获取请求头中的 Cookie
@@ -1321,7 +1321,7 @@ func handler(w http.ResponseWriter, r *http.Request){
 
 Cookie 默认是会话级别的 ，当关闭浏览器之后 Cookie 将失效，我们可以通过 Cookie 结构的 `MaxAge` 字段设置 `Cookie` 的有效时间
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 func handler(w http.ResponseWriter, r *http.Request) {
 	cookie1 := http.Cookie{
@@ -1372,7 +1372,7 @@ index.html 模板文件中引入的 css 样式的地址是: `<link rel="styleshe
 
 对静态文件的处理
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 http.Handler("/static/",http.StripPrefix("/static/",http.FileServer(http.Dir("views/static"))))
 ----

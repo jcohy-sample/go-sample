@@ -12,7 +12,7 @@ type Hero struct {
 	Right *Hero
 }
 
-//前序遍历[先输root结点，然后再输出左子树，然后再输出右子树]
+// 前序遍历[先输root结点，然后再输出左子树，然后再输出右子树]
 func PreOrder(node *Hero) {
 	if node != nil {
 		fmt.Printf("no=%d name=%s\n", node.No, node.Name)
@@ -21,7 +21,7 @@ func PreOrder(node *Hero) {
 	}
 }
 
-//中序遍历[先输出root的左子树，再输root结点，最后输出root的右子树]
+// 中序遍历[先输出root的左子树，再输root结点，最后输出root的右子树]
 func InfixOrder(node *Hero) {
 	if node != nil {
 
@@ -83,4 +83,5 @@ func main() {
 	//InfixOrder(root) //
 	PostOrder(root) //后序遍历
 }
+
 // end::code[]

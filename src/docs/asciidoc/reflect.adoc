@@ -13,7 +13,7 @@
 变量, `interface{}` 和 `reflect.Value` 是可以相互转换的, 这点在实际开发中会经常用到
 
 ====
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 
@@ -56,7 +56,7 @@ image::{oss-images}/go8.png[]
 
 通过下面这个案例来演示反射的基本操作
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -161,7 +161,7 @@ Type 是类型, Kind是类别, Type 和 Kind 可能是相同的, 也可能是不
 . 使用反射的方式来获取变量的值, 并返回对应的类型, 要求数据类型匹配, 比如 `x` 是 `int` ,那么就应该使用 `reflect.Value(x).Int()`,而不能使用其他的, 否则报 `panic`
 . 通过反射来修改变量, 注意当使用 SetXxx 方法来设置需要通过对应的指针类型来完成, 这样才能改变传入的变量的值, 同事也需要使用到 `reflect.Value.Elem()` 方法
 +
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
@@ -181,7 +181,7 @@ func main() {
 
 示例一: 使用反射来遍历结构体字段, 调用结构体方法, 并获取结构体标签的值
 
-[source,go]
+[source,go,indent=0,subs="verbatim,quotes",role="primary"]
 ----
 package main
 import (
